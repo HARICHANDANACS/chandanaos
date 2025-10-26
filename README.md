@@ -25,14 +25,14 @@ Frontend: React, Vite, Tailwind CSS
 
 Animation: Framer Motion, TSParticles
 
-Deployment: Netlify
+Deployment: Vercel
 
 Language: JavaScript (ESNext)
 
 ## Live Demo
 
 Visit the deployed portfolio at:
-https://chandanaos.netlify.app
+https://chandanaos.vercel.app/
 
 ## Installation & Setup
 
