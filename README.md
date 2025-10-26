@@ -54,20 +54,6 @@ npm run dev
 Then, open http://localhost:5173
  in your browser.
 
-Folder Structure
-chandanaos/
-│
-├── public/              # Static assets
-├── src/
-│   ├── assets/          # Images and resume
-│   ├── components/      # React components
-│   ├── data/            # Projects and journey data
-│   ├── index.css        # Global Tailwind styles
-│   └── App.jsx          # Root application file
-│
-├── vite.config.js       # Vite configuration
-├── package.json         # Dependencies and scripts
-└── netlify.toml         # Deployment configuration
 
 
 ## License
