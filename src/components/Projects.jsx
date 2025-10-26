@@ -1,59 +1,55 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { Github } from "lucide-react";
-import { projects } from "../data/profileData";
+import { projects } from "./projectsData"; // keep your projects array here
 
 export default function Projects() {
+  const [showAll, setShowAll] = useState(false);
+  const visibleProjects = showAll ? projects : projects.slice(0, 3);
+
   return (
     <section
       id="projects"
-      className="max-w-6xl mx-auto py-20 px-6 text-center border-t border-gray-800"
+      className="max-w-6xl mx-auto py-20 px-6 text-center border border-white/10 rounded-2xl bg-white/5 backdrop-blur-md shadow-lg shadow-pink-500/10 mt-16"
     >
-      <motion.h2
-        className="text-4xl font-bold mb-10 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-        viewport={{ once: true }}
-      >
-        Featured Projects
-      </motion.h2>
+      <h2 className="text-3xl md:text-4xl font-bold mb-10 bg-gradient-to-r from-pink-400 to-cyan-400 bg-clip-text text-transparent">
+        Featured Projects 💻
+      </h2>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projects.map((p, i) => (
+      <div className="grid md:grid-cols-3 gap-8">
+        {visibleProjects.map((proj, i) => (
           <motion.div
             key={i}
-            className="bg-[#0c0e12] p-6 rounded-2xl border border-gray-800 shadow-md hover:shadow-lg hover:shadow-purple-500/10 transition-all"
-            initial={{ opacity: 0, y: 40 }}
+            className="p-6 rounded-2xl bg-gray-900/60 border border-gray-700 hover:border-pink-400/40 transition-all shadow-[0_0_15px_rgba(236,72,153,0.15)]"
+            initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.1, duration: 0.6 }}
+            transition={{ delay: i * 0.15 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-semibold text-purple-300 mb-2">
-              {p.title}
-            </h3>
-            <p className="text-gray-400 text-sm mb-4">{p.description}</p>
-
-            <div className="flex flex-wrap justify-center gap-2 mb-4">
-              {p.tech.map((t, idx) => (
-                <span
-                  key={idx}
-                  className="text-xs px-3 py-1 bg-gray-800 rounded-full text-gray-300 border border-gray-700"
-                >
-                  {t}
-                </span>
-              ))}
-            </div>
-
+            <h3 className="text-xl font-semibold text-pink-300 mb-2">{proj.title}</h3>
+            <p className="text-gray-300 text-sm mb-3">{proj.description}</p>
+            <p className="text-sm text-cyan-300 mb-3">
+              {proj.tech.join(" • ")}
+            </p>
             <a
-              href={p.github}
+              href={proj.github}
               target="_blank"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-purple-300 hover:text-purple-400"
+              className="inline-block px-4 py-2 rounded-full bg-pink-500/20 border border-pink-400/50 hover:bg-pink-500/30 transition-all glow-hover text-sm"
             >
-              <Github className="w-4 h-4" /> View on GitHub
+              View on GitHub
             </a>
           </motion.div>
         ))}
       </div>
+
+      {projects.length > 3 && (
+        <motion.button
+          onClick={() => setShowAll(!showAll)}
+          className="mt-10 px-6 py-2 rounded-full bg-gradient-to-r from-pink-400 to-cyan-400 text-black font-semibold hover:scale-105 transition-all"
+          whileTap={{ scale: 0.95 }}
+        >
+          {showAll ? "Show Less" : "View More"}
+        </motion.button>
+      )}
     </section>
   );
 }
