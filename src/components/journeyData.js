@@ -22,11 +22,11 @@ export const journey = [
   {
     year: "2024",
     title: "Building My Way Up",
-    desc: "Started building projects, joined hackathons, explored AI, DevOps, and became the Head of Deco and Arts Club. Balancing logic and creativity finally felt right.",
+    desc: "Started building projects, joined hackathons, explored AI, DevOps, and became the Committee Head of Deco and Arts at Aaruush. Balancing logic and creativity finally felt right.",
   },
   {
     year: "2025",
     title: "The Vibe Era",
-    desc: "Interning at Nokia. Still discovering my path, but coding feels like my vibe now — not just work. It’s about creation, connection, and curiosity.",
+    desc: "Interning at Nokia. Still discovering my path, currently into vibe coding. It’s about creation, connection, and curiosity.",
   },
 ];
